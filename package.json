@@ -1,0 +1,29 @@
+{
+  "name": "api.amirhossein.info",
+  "version": "1.0.0",
+  "description": "API service for amirhossein.info",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlackIQ/api.amirhossein.info.git"
+  },
+  "keywords": [
+    "API"
+  ],
+  "author": "Amirhossein Mohammadi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BlackIQ/api.amirhossein.info/issues"
+  },
+  "homepage": "https://github.com/BlackIQ/api.amirhossein.info#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "mongoose": "^6.6.1"
+  }
+}
