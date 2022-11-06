@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "API service for amirhossein.info",
   "main": "server.js",
+  "type": "module",
   "scripts": {
-    "test": "nodemon server.js",
-    "start": "node server.js"
+    "test": "link-module-alias && npx nodemon server.js",
+    "build": "node_modules/babel-cli/bin/babel.js ./ --source-maps --out-dir dist",
+    "start": "link-module-alias && node server.js",
+    "populate": "node_modules/babel-cli/bin/babel-node.js populate.js",
+    "postinstall": "link-module-alias"
   },
   "repository": {
     "type": "git",
@@ -20,11 +24,22 @@
     "url": "https://github.com/BlackIQ/api.amirhossein.info/issues"
   },
   "homepage": "https://github.com/BlackIQ/api.amirhossein.info#readme",
+  "_moduleAliases": {
+    "$root": "./app",
+    "$connections": "app/connections",
+    "$routes": "app/routes",
+    "$config": "app/config",
+    "$controllers": "app/controllers",
+    "$middlewares": "app/middlewares",
+    "$models": "app/models",
+    "$services": "app/services"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
     "jsonwebtoken": "^8.5.1",
+    "link-module-alias": "^1.2.0",
     "mongoose": "^6.6.1"
   }
 }

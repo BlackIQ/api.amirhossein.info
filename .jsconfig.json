@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "baseUrl": "app",
+      "paths": {
+        "$root/*": ["root/*"],
+        "$connections/*": ["connections/*"], 
+        "$routes/*": ["routes/*"],
+        "$config/*": ["config/*"],
+        "$controllers/*": ["controllers/*"],
+        "$middlewares/*": ["middlewares/*"],
+        "$models/*": ["models/*"],
+        "$services/*": ["services/*"]
+    }
+  }
+}
