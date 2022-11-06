@@ -1,13 +1,8 @@
-const mongoose = require("mongoose");
-const app = require("./app")
+import app from "./app/index.js";
 
-require("dotenv").config();
-const env = process.env;
+import { appConfig } from "$config/index.js";
+import { mongodb } from "$connections/index.js";
 
-mongoose.connect(env.MONGO_URL)
-    .then((connection) => {
-        const port = env.PORT;
-
-        app.listen(port, () => console.log(`API running on ${port}`));
-    })
-    .catch((error) => console.log(error));
+app.listen(appConfig.port, async () => {
+  console.log(`App is running on ${appConfig.port}`);
+});
