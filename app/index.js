@@ -1,20 +1,18 @@
-const express = require("express");
-const cors = require("cors");
+import express from "express";
+import cors from "cors";
 
-const v1 = require("./v1");
+import routes from "$routes/index.js";
+import middlewares from "$middlewares/index.js";
 
 const app = express();
 
-app.set('json spaces', 2);
-app.use(express.urlencoded({extended: true}));
+app.set("json spaces", 2);
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(cors({
-    "origin": "*",
-    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-    "preflightContinue": true,
-}));
+app.use(cors());
+app.use(middlewares.view());
 
-app.use('/v1', v1);
+app.use("/v1", routes);
 
-module.exports = app;
+export default app;
