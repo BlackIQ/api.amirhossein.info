@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(cors());
-app.use(middlewares.view());
+app.use(middlewares.log());
 
 app.use("/v1", routes);
 
