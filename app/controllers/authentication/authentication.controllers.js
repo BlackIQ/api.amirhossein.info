@@ -5,21 +5,20 @@ export const login = (req, res) => {
 
   User.findOne(data)
     .then((user) => {
-      if (user) {
-        res.status(401).send({
-          error: "Sorry, but user is not founded.",
-        });
-      } else {
+      if (user !== null) {
         res.status(200).send({
           id: user.id,
+        });
+      } else {
+        res.status(401).send({
+          error: "Sorry, but user is not founded.",
         });
       }
     })
     .catch((error) => {
-      const sendingData = {
+      res.status(400).send({
         error: error.message,
-      };
-      res.status(400).send(sendingData);
+      });
     });
 };
 
@@ -31,21 +30,18 @@ export const register = (req, res) => {
     newUser
       .save()
       .then((user) => {
-        const sendingData = {
+        res.status(200).send({
           id: user.id,
-        };
-        res.status(200).send(sendingData);
+        });
       })
       .catch((error) => {
-        const sendingData = {
+        res.status(500).send({
           error: error.message,
-        };
-        res.status(400).send(sendingData);
+        });
       });
   } else {
-    const sendingData = {
+    res.status(500).send({
       error: "Sorry there is an error occurred. Can you ty again!?",
-    };
-    res.status(401).send(sendingData);
+    });
   }
 };
