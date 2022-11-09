@@ -1,3 +1,3 @@
-import { saveView } from "$middlewares/view/view.middleware.js";
+import { saveLog } from "$middlewares/log/log.middleware.js";
 
-export default { view: () => saveView };
+export default { log: () => saveLog };
