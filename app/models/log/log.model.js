@@ -3,15 +3,13 @@ import { mongodb } from "$connections/index.js";
 import mongoose from "mongoose";
 
 const schemaModel = {
-  from: {
+  ip: {
     type: String,
-    unique: false,
-    required: false,
-    default: "",
+    default: "-",
   },
 };
 
 const mongooseSchema = mongoose.Schema;
-const schema = new mongooseSchema(schemaModel);
+const schema = new mongooseSchema(schemaModel, { timestamps: true });
 
-export default mongodb.model("View", schema);
+export default mongodb.model("Log", schema);
