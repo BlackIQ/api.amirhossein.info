@@ -1,5 +1,4 @@
-import * as Authentication from "$controllers/authentication/authentication.controllers.js";
-import * as Message from "$controllers/message/message.controllers.js";
-import * as Log from "$controllers/log/log.controllers.js";
+import * as Notes from "$controllers/notes/notes.controllers.js";
+import * as Auth from "$controllers/auth/auth.controllers.js";
 
-export { Authentication, Message, Log };
+export { Notes, Auth };
