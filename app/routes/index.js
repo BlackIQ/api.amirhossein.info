@@ -1,13 +1,11 @@
 import express from "express";
 
-import AuthenticatioRoutes from "$routes/authentication/authentication.routes.js";
-import MessageRoutes from "$routes/message/message.routes.js";
-import LogRoutes from "$routes/log/log.routes.js";
+import Notes from "$routes/notes/notes.routes.js";
+import Auth from "$routes/auth/auth.routes.js";
 
 const Router = express();
 
-Router.use("/log", LogRoutes);
-Router.use("/message", MessageRoutes);
-Router.use("/authentication", AuthenticatioRoutes);
+Router.use("/notes", Notes);
+Router.use("/auth", Auth);
 
 export default Router;
