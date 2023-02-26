@@ -7,9 +7,8 @@
         "$routes/*": ["routes/*"],
         "$config/*": ["config/*"],
         "$controllers/*": ["controllers/*"],
-        "$middlewares/*": ["middlewares/*"],
-        "$models/*": ["models/*"],
-        "$services/*": ["services/*"]
+        "$functions/*": ["functions/*"],
+        "$middlewares/*": ["middlewares/*"]
     }
   }
 }
