@@ -1,18 +1,20 @@
 import express from "express";
 import cors from "cors";
 
-import routes from "$routes/index.js";
-import middlewares from "$middlewares/index.js";
+import { log } from "$middlewares/index.js";
+import router from "$routes/index.js";
 
 const app = express();
 
 app.set("json spaces", 2);
+
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
+app.use(express.json({ limit: "50mb" }));
 app.use(cors());
-app.use(middlewares.log());
 
-app.use("/v1", routes);
+app.use("/api", log, router);
+app.use("*", (req, res) =>
+  res.status(404).send({ url: req.originalUrl, message: "Page not found" })
+);
 
 export default app;
