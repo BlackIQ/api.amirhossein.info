@@ -1,14 +1,31 @@
 {
-    "compilerOptions": {
-      "baseUrl": "app",
-      "paths": {
-        "$root/*": ["root/*"],
-        "$connections/*": ["connections/*"], 
-        "$routes/*": ["routes/*"],
-        "$config/*": ["config/*"],
-        "$controllers/*": ["controllers/*"],
-        "$functions/*": ["functions/*"],
-        "$middlewares/*": ["middlewares/*"]
+  "compilerOptions": {
+    "baseUrl": "app",
+    "paths": {
+      "$root/*": [
+        "root/*"
+      ],
+      "$connections/*": [
+        "connections/*"
+      ],
+      "$env/*": [
+        "env/*"
+      ],
+      "$routes/*": [
+        "routes/*"
+      ],
+      "$config/*": [
+        "config/*"
+      ],
+      "$controllers/*": [
+        "controllers/*"
+      ],
+      "$functions/*": [
+        "functions/*"
+      ],
+      "$middlewares/*": [
+        "middlewares/*"
+      ]
     }
   }
 }
