@@ -25,7 +25,7 @@ export const ALL = async (req, res) => {
       },
     ]);
 
-    res.status(200).send(experiences);
+    res.status(200).send(experiences.reverse());
   } catch (error) {
     res.status(500).send({ message: error.message });
   }
