@@ -5,6 +5,7 @@ import Experience from "$routes/experience/experience.routes.js";
 import Personal from "$routes/personal/personal.routes.js";
 import Skill from "$routes/skill/skill.routes.js";
 import Social from "$routes/social/social.routes.js";
+import Resume from "$routes/resume/resume.routes.js";
 
 const Router = express();
 
@@ -13,5 +14,6 @@ Router.use("/experiences", Experience);
 Router.use("/personals", Personal);
 Router.use("/skills", Skill);
 Router.use("/socials", Social);
+Router.use("/resumes", Resume);
 
 export default Router;

@@ -3,5 +3,6 @@ import Duty from "$models/duty/duty.model.js";
 import Skill from "$models/skill/skill.model.js";
 import PersonalInfo from "$models/personal/personal.model.js";
 import Experience from "$models/experience/experience.model.js";
+import Resume from "$models/resume/resume.model.js";
 
-export { Social, Duty, Skill, PersonalInfo, Experience };
+export { Social, Duty, Skill, PersonalInfo, Experience, Resume };
