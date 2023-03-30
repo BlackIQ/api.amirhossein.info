@@ -1,4 +1,7 @@
-import * as Notes from "$controllers/notes/notes.controllers.js";
-import * as Auth from "$controllers/auth/auth.controllers.js";
+import * as Social from "$controllers/social/social.controllers.js";
+import * as Duty from "$controllers/duty/duty.controllers.js";
+import * as Skill from "$controllers/skill/skill.controllers.js";
+import * as PersonalInfo from "$controllers/personal/personal.controllers.js";
+import * as Experience from "$controllers/experience/experience.controllers.js";
 
-export { Notes, Auth };
+export { Social, Duty, Skill, PersonalInfo, Experience };
