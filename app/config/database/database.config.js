@@ -11,6 +11,6 @@ export default {
   mongodb: {
     host: env.MONGO_HOST,
     port: env.MONGO_PORT,
-    database: env.MONGO_NAME,
+    database: env.MONGO_COLLECTION,
   },
 };
