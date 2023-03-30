@@ -1,23 +1,12 @@
 import { MongoDB } from "$connections";
 import mongoose from "mongoose";
 
-const mongooseSchema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-const schemaModel = {
-  label: {
-    type: String,
-    default: "",
-    required: true,
-  },
-  url: {
-    type: String,
-    default: "",
-    required: true,
-  },
-};
-
-const schema = new mongooseSchema(schemaModel, {
-  timestamps: true,
+// Define the schema for social media links
+const socialMediaSchema = new Schema({
+  label: String,
+  url: String,
 });
 
-export default MongoDB.model("Social", schema);
+export default MongoDB.model("Social", socialMediaSchema);
