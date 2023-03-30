@@ -5,10 +5,7 @@
 // There is a middleware to log all requests in a file.
 // Here is required configs. Like path and name of the file.
 
-import dotenv from "dotenv";
-dotenv.config();
-
-const env = process.env;
+import env from "$env";
 
 export default {
   filePath: env.FILE_PATH,

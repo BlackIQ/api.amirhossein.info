@@ -4,10 +4,7 @@
 // Application configurations.
 // Here we export application data, like environment, is it published, port and stuff.
 
-import dotenv from "dotenv";
-dotenv.config();
-
-const env = process.env;
+import env from "$env";
 
 export default {
   environment: env.APP_ENVIRONMENT,
