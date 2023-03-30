@@ -25,6 +25,9 @@
       ],
       "$middlewares/*": [
         "middlewares/*"
+      ],
+      "$models/*": [
+        "models/*"
       ]
     }
   }

@@ -32,6 +32,7 @@
     "$config": "app/config",
     "$controllers": "app/controllers",
     "$functions": "app/functions",
+    "$models": "app/models",
     "$middlewares": "app/middlewares"
   },
   "dependencies": {
