@@ -7,6 +7,7 @@ import Skill from "$routes/skill/skill.routes.js";
 import Social from "$routes/social/social.routes.js";
 import Resume from "$routes/resume/resume.routes.js";
 import Message from "$routes/message/message.routes.js";
+import Authentication from "$routes/authentication/authentication.routes.js";
 
 const Router = express();
 
@@ -17,5 +18,6 @@ Router.use("/skills", Skill);
 Router.use("/socials", Social);
 Router.use("/resumes", Resume);
 Router.use("/messages", Message);
+Router.use("/authentication", Authentication);
 
 export default Router;

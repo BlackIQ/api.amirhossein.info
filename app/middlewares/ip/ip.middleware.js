@@ -12,7 +12,7 @@ const ip = (req, res, next) => {
   // Then check that ip is white or not by finding in it whitelist.
 
   const headers = req.headers;
-  const whitelist = ["2a01:4ff:1f0:c5c8::1"];
+  const whitelist = ["2a01:4ff:1f0:c5c8::1", undefined];
 
   const coming = headers["x-forwarded-for"];
 

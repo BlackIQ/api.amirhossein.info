@@ -5,5 +5,15 @@ import * as PersonalInfo from "$controllers/personal/personal.controllers.js";
 import * as Experience from "$controllers/experience/experience.controllers.js";
 import * as Resume from "$controllers/resume/resume.controllers.js";
 import * as Message from "$controllers/message/message.controllers.js";
+import * as Authentication from "$controllers/authentication/authentication.controllers.js";
 
-export { Social, Duty, Skill, PersonalInfo, Experience, Resume, Message };
+export {
+  Social,
+  Duty,
+  Skill,
+  PersonalInfo,
+  Experience,
+  Resume,
+  Message,
+  Authentication,
+};
