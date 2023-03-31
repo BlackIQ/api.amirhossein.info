@@ -6,6 +6,13 @@ export const CREATE = async (req, res) => {
   try {
     await Message.create(data);
 
+    if (!data.message) {
+      return res.status(400).send({ message: "Fill message" });
+    }
+    if (!data.name) {
+      return res.status(400).send({ message: "Fill name" });
+    }
+
     res.status(200).send({ message: "Thanks for your message" });
   } catch (error) {
     res.status(500).send({ message: error.message });
