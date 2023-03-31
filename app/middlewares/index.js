@@ -8,5 +8,6 @@
 
 import key from "$middlewares/key/key.middleware.js";
 import log from "$middlewares/log/log.middleware.js";
+import ip from "$middlewares/ip/ip.middleware.js";
 
-export { key, log };
+export { key, log, ip };
