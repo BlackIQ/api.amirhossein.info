@@ -11,14 +11,14 @@ const ip = (req, res, next) => {
   // Here we find comming ip.
   // Then check that ip is white or not by finding in it whitelist.
 
-  // const headers = req.headers;
-  // const whitelist = [];
+  const headers = req.headers;
+  const whitelist = ["2a01:4ff:1f0:c5c8::1"];
 
-  // const coming = headers["x-forwarded-for"];
+  const coming = headers["x-forwarded-for"];
 
-  // if (!whitelist.includes(coming)) {
-  //   return res.status(401).send({ message: "Unauthorized" });
-  // }
+  if (!whitelist.includes(coming)) {
+    return res.status(401).send({ message: "Unauthorized" });
+  }
 
   next();
 };
