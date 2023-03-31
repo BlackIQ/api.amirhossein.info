@@ -16,6 +16,8 @@ const ip = (req, res, next) => {
 
   const coming = headers["x-forwarded-for"];
 
+  console.log(coming);
+
   if (!whitelist.includes(coming)) {
     return res.status(401).send({ message: "Unauthorized" });
   }
