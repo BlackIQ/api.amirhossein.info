@@ -16,26 +16,19 @@ export const ALL = async (req, res) => {
   try {
     const skills = await Skill.find();
 
-    const skillsById = {};
-    skills.forEach((skill) => (skillsById[skill.id] = skill));
-
-    const clean = [];
-
-    skills.map((skill) => {
+    const clean = await skills.reduce((acc, skill) => {
       if (skill.parent === null) {
-        clean.push({ _id: skill._id, name: skill.name, children: [] });
-      } else {
-        const parent = skillsById[skill.parent];
-
-        if (!parent.children) {
-          parent.children = [];
-        }
-
-        clean
-          .find((skl) => String(skl._id) === String(skill.parent))
-          .children.push({ _id: skill._id, name: skill.name });
+        acc.push({
+          _id: skill._id,
+          name: skill.name,
+          children: skills.filter(
+            (child) => String(child.parent) === String(skill._id)
+          ),
+        });
       }
-    });
+
+      return acc;
+    }, []);
 
     res.status(200).send(clean);
   } catch (error) {

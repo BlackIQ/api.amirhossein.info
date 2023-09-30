@@ -12,6 +12,6 @@ export default {
     atlas: env.MONGO_ATLAS,
     host: env.MONGO_HOST,
     port: env.MONGO_PORT,
-    database: env.MONGO_COLLECTION,
+    database: env.MONGO_DATABASE,
   },
 };

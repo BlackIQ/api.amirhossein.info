@@ -4,8 +4,8 @@ import { databaseConfig } from "$config/index.js";
 
 const { mongodb } = databaseConfig;
 
-// const url = `mongodb://${mongodb.host}:${mongodb.port}/${mongodb.database}`;
-const url = mongodb.atlas;
+const url = `mongodb://${mongodb.host}:${mongodb.port}/${mongodb.database}`;
+// const url = mongodb.atlas;
 
 const connection = mongoose.createConnection(url, (error) => {
   if (error) {
