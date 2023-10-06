@@ -8,6 +8,7 @@ import Social from "$routes/social/social.routes.js";
 import Resume from "$routes/resume/resume.routes.js";
 import Message from "$routes/message/message.routes.js";
 import Authentication from "$routes/authentication/authentication.routes.js";
+import Note from "$routes/note/note.routes.js";
 
 const Router = express();
 
@@ -19,5 +20,6 @@ Router.use("/socials", Social);
 Router.use("/resumes", Resume);
 Router.use("/messages", Message);
 Router.use("/authentication", Authentication);
+Router.use("/notes", Note);
 
 export default Router;
