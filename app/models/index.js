@@ -6,5 +6,16 @@ import Experience from "$models/experience/experience.model.js";
 import Resume from "$models/resume/resume.model.js";
 import Message from "$models/message/message.model.js";
 import User from "$models/user/user.model.js";
+import Note from "$models/note/note.model.js";
 
-export { Social, Duty, Skill, PersonalInfo, Experience, Resume, Message, User };
+export {
+  Social,
+  Duty,
+  Skill,
+  PersonalInfo,
+  Experience,
+  Resume,
+  Message,
+  User,
+  Note,
+};
