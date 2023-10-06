@@ -6,6 +6,7 @@ import * as Experience from "$controllers/experience/experience.controllers.js";
 import * as Resume from "$controllers/resume/resume.controllers.js";
 import * as Message from "$controllers/message/message.controllers.js";
 import * as Authentication from "$controllers/authentication/authentication.controllers.js";
+import * as Note from "$controllers/note/note.controllers.js";
 
 export {
   Social,
@@ -16,4 +17,5 @@ export {
   Resume,
   Message,
   Authentication,
+  Note,
 };
