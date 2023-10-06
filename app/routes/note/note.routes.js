@@ -5,7 +5,7 @@ import { jwt } from "$middlewares";
 
 const router = express.Router();
 
-router.post("/", Note.CREATE);
+router.post("/", jwt, Note.CREATE);
 router.get("/", Note.ALL);
 router.get("/:id", Note.SINGLE);
 router.delete("/:id", jwt, Note.DELETE);
