@@ -3,8 +3,6 @@ import { Note } from "$models";
 export const CREATE = async (req, res) => {
   const data = req.body;
 
-  console.log(data);
-
   try {
     const note = await Note.create(data);
 
