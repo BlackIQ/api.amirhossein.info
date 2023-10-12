@@ -10,6 +10,6 @@ router.get("/", Note.ALL);
 router.get("/:id", Note.SINGLE);
 router.delete("/:id", jwt, Note.DELETE);
 router.patch("/:id", jwt, Note.UPDATE);
-router.patch("/clap/:id", jwt, Note.CLAP);
+router.patch("/clap/:id", Note.CLAP);
 
 export default router;
