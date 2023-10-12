@@ -29,7 +29,7 @@ export const SINGLE = async (req, res) => {
     const note = await Note.findById(id);
 
     if (note) {
-      await Note.findOneAndUpdate({ _id: id }, { $inc: { view: 1 } });
+      await Note.findOneAndUpdate({ _id: id }, { $inc: { views: 1 } });
 
       res.status(200).send(note);
     } else {
@@ -80,7 +80,7 @@ export const CLAP = async (req, res) => {
     const note = await Note.findById(id);
 
     if (note) {
-      await Note.findOneAndUpdate({ _id: id }, { $inc: { view: 1 } });
+      await Note.findOneAndUpdate({ _id: id }, { $inc: { clap: 1 } });
 
       res.status(200).send(note);
     } else {
