@@ -11,6 +11,8 @@ const noteSchema = new Schema(
     content: String,
     private: Boolean,
     thumbnail: String,
+    views: Number,
+    clap: Number,
   },
   { timestamps: true }
 );
