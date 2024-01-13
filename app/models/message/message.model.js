@@ -7,6 +7,7 @@ const Schema = mongoose.Schema;
 const messageSchema = new Schema(
   {
     name: String,
+    email: String,
     message: String,
   },
   { timestamps: true }

@@ -4,14 +4,18 @@ export const CREATE = async (req, res) => {
   const data = req.body;
 
   try {
-    await Message.create(data);
+    if (data.message === "") {
+      return res.status(400).send({ message: "Fill message fields please" });
+    }
+    if (data.name === "") {
+      return res.status(400).send({ message: "Fill name fields please" });
+    }
 
-    if (!data.message) {
-      return res.status(400).send({ message: "Fill message" });
+    if (data.email === "") {
+      return res.status(400).send({ message: "Fill email fields please" });
     }
-    if (!data.name) {
-      return res.status(400).send({ message: "Fill name" });
-    }
+
+    await Message.create(data);
 
     res.status(200).send({ message: "Thanks for your message" });
   } catch (error) {
