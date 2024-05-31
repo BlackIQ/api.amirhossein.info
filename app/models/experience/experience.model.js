@@ -10,6 +10,7 @@ const experienceSchema = new Schema({
   location: String,
   start_date: String,
   end_date: String,
+  priority: Number,
   skills: [{ type: Schema.Types.ObjectId, ref: "Skill" }], // Reference to skills collection
   duties: [{ type: Schema.Types.ObjectId, ref: "Duty" }], // Reference to duties collection
 });

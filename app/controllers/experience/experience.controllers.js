@@ -23,7 +23,7 @@ export const ALL = async (req, res) => {
         path: "duties",
         select: "name id",
       },
-    ]);
+    ]).sort({ priority: 1 });
 
     res.status(200).send(experiences.reverse());
   } catch (error) {
