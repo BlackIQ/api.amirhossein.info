@@ -14,7 +14,7 @@ export const CREATE = async (req, res) => {
 
 export const ALL = async (req, res) => {
   try {
-    const notes = await Note.find().sort({ createdAt: -1 });
+    const notes = await Note.find().sort({ createdAt: -1 }).select("-content");
 
     res.status(200).send(notes);
   } catch (error) {
@@ -67,24 +67,6 @@ export const UPDATE = async (req, res) => {
       res.status(200).send({ message: "Note updated" });
     } else {
       res.status(404).send({ message: "Note not found" });
-    }
-  } catch (error) {
-    res.status(500).send({ message: error.message });
-  }
-};
-
-export const CLAP = async (req, res) => {
-  const { id } = req.params;
-
-  try {
-    const note = await Note.findById(id);
-
-    if (note) {
-      await Note.findOneAndUpdate({ _id: id }, { $inc: { clap: 1 } });
-
-      res.status(200).send(note);
-    } else {
-      res.status(404).send({ message: "Thanks!" });
     }
   } catch (error) {
     res.status(500).send({ message: error.message });

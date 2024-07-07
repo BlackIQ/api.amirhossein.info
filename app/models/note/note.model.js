@@ -9,10 +9,9 @@ const noteSchema = new Schema(
     title: String,
     details: String,
     content: String,
-    private: Boolean,
     thumbnail: String,
     views: Number,
-    clap: Number,
+    dir: String,
   },
   { timestamps: true }
 );
