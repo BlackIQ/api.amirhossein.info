@@ -10,5 +10,8 @@ COPY . .
 # Install dependencies
 RUN npm install
 
+# Expose the container port
+EXPOSE 8000
+
 # Start the Next.js application
 CMD ["npm", "start"]
