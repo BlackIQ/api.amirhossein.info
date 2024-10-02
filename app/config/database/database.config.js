@@ -9,9 +9,10 @@ import env from "$env";
 
 export default {
   mongodb: {
-    atlas: env.MONGO_ATLAS,
     host: env.MONGO_HOST,
     port: env.MONGO_PORT,
     database: env.MONGO_DATABASE,
+    username: env.MONGO_USERNAME,
+    password: env.MONGO_PASSWORD,
   },
 };
