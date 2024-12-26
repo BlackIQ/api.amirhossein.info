@@ -14,7 +14,7 @@ export const CREATE = async (req, res) => {
 
 export const ALL = async (req, res) => {
   try {
-    const skills = await Skill.find();
+    const skills = await Skill.find().sort({ order: 1 });
 
     const clean = await skills.reduce((acc, skill) => {
       if (skill.parent === null) {
