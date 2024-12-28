@@ -9,6 +9,7 @@ import Resume from "$routes/resume/resume.routes.js";
 import Message from "$routes/message/message.routes.js";
 import Authentication from "$routes/authentication/authentication.routes.js";
 import Note from "$routes/note/note.routes.js";
+import Base from "$routes/base/base.routes.js";
 
 const Router = express();
 
@@ -21,5 +22,6 @@ Router.use("/resumes", Resume);
 Router.use("/messages", Message);
 Router.use("/authentication", Authentication);
 Router.use("/notes", Note);
+Router.use("/base", Base);
 
 export default Router;

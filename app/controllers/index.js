@@ -7,6 +7,7 @@ import * as Resume from "$controllers/resume/resume.controllers.js";
 import * as Message from "$controllers/message/message.controllers.js";
 import * as Authentication from "$controllers/authentication/authentication.controllers.js";
 import * as Note from "$controllers/note/note.controllers.js";
+import * as Base from "$controllers/base/base.controllers.js";
 
 export {
   Social,
@@ -18,4 +19,5 @@ export {
   Message,
   Authentication,
   Note,
+  Base,
 };
