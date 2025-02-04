@@ -2,33 +2,7 @@
   "compilerOptions": {
     "baseUrl": "app",
     "paths": {
-      "$root/*": [
-        "root/*"
-      ],
-      "$connections/*": [
-        "connections/*"
-      ],
-      "$env/*": [
-        "env/*"
-      ],
-      "$routes/*": [
-        "routes/*"
-      ],
-      "$config/*": [
-        "config/*"
-      ],
-      "$controllers/*": [
-        "controllers/*"
-      ],
-      "$functions/*": [
-        "functions/*"
-      ],
-      "$middlewares/*": [
-        "middlewares/*"
-      ],
-      "$models/*": [
-        "models/*"
-      ]
+      "$app/*": ["root/*"]
     }
   }
 }
