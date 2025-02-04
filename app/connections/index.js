@@ -1,9 +1,3 @@
-// ----------------------------------------------
-// index.js
-// ----------------------------------------------
-// Exporting all databse connections.
-// Like configs, create them in directories and export them here.
+import mongo from "$app/connections/mongo/mongo.connection.js";
 
-import MongoDB from "$connections/mongodb/mongodb.connection.js";
-
-export { MongoDB };
+export { mongo };
