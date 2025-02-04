@@ -1,4 +1,4 @@
-import { Note } from "$models";
+import { Note } from "$app/models/index.js";
 
 export const CREATE = async (req, res) => {
   const data = req.body;
@@ -6,9 +6,9 @@ export const CREATE = async (req, res) => {
   try {
     const note = await Note.create(data);
 
-    res.status(200).send(note);
+    return res.status(200).send(note);
   } catch (error) {
-    res.status(500).send({ message: error.message });
+    return res.status(500).send({ message: error.message });
   }
 };
 
@@ -16,9 +16,9 @@ export const ALL = async (req, res) => {
   try {
     const notes = await Note.find().sort({ createdAt: -1 }).select("-content");
 
-    res.status(200).send(notes);
+    return res.status(200).send(notes);
   } catch (error) {
-    res.status(500).send({ message: error.message });
+    return res.status(500).send({ message: error.message });
   }
 };
 
@@ -28,15 +28,15 @@ export const SINGLE = async (req, res) => {
   try {
     const note = await Note.findById(id);
 
-    if (note) {
-      await Note.findOneAndUpdate({ _id: id }, { $inc: { views: 1 } });
-
-      res.status(200).send(note);
-    } else {
-      res.status(404).send({ message: "Note not found" });
+    if (!note) {
+      return res.status(404).send({ message: "Note did not found" });
     }
+
+    await Note.findOneAndUpdate({ _id: id }, { $inc: { views: 1 } });
+
+    return res.status(200).send(note);
   } catch (error) {
-    res.status(500).send({ message: error.message });
+    return res.status(500).send({ message: error.message });
   }
 };
 
@@ -46,13 +46,13 @@ export const DELETE = async (req, res) => {
   try {
     const note = await Note.findByIdAndDelete(id);
 
-    if (note) {
-      res.status(200).send({ message: "Note deleted" });
-    } else {
-      res.status(404).send({ message: "Note not found" });
+    if (!note) {
+      return res.status(404).send({ message: "Note did not found" });
     }
+
+    return res.status(200).send({ message: "Note deleted" });
   } catch (error) {
-    res.status(500).send({ message: error.message });
+    return res.status(500).send({ message: error.message });
   }
 };
 
@@ -63,12 +63,12 @@ export const UPDATE = async (req, res) => {
   try {
     const note = await Note.findByIdAndUpdate(id, data);
 
-    if (note) {
-      res.status(200).send({ message: "Note updated" });
-    } else {
-      res.status(404).send({ message: "Note not found" });
+    if (!note) {
+      return res.status(404).send({ message: "Note did not found" });
     }
+
+    return res.status(200).send({ message: "Note updated" });
   } catch (error) {
-    res.status(500).send({ message: error.message });
+    return res.status(500).send({ message: error.message });
   }
 };

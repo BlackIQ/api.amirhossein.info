@@ -8,7 +8,7 @@ export const schemaModel = {
     type: String,
     default: null,
   },
-  company_name: {
+  companyName: {
     type: String,
     default: null,
   },
@@ -16,11 +16,11 @@ export const schemaModel = {
     type: String,
     default: null,
   },
-  start_date: {
+  startDate: {
     type: String,
     default: null,
   },
-  end_date: {
+  endDate: {
     type: String,
     default: null,
   },
@@ -32,13 +32,6 @@ export const schemaModel = {
     {
       type: mongooseSchema.Types.ObjectId,
       ref: "Skill",
-      default: [],
-    },
-  ],
-  duties: [
-    {
-      type: mongooseSchema.Types.ObjectId,
-      ref: "Duty",
       default: [],
     },
   ],

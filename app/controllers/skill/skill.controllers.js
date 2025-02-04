@@ -1,4 +1,4 @@
-import { Skill } from "$models";
+import { Skill } from "$app/models/index.js";
 
 export const CREATE = async (req, res) => {
   const data = req.body;
@@ -6,9 +6,9 @@ export const CREATE = async (req, res) => {
   try {
     const skill = await Skill.create(data);
 
-    res.status(200).send(skill);
+    return res.status(200).send(skill);
   } catch (error) {
-    res.status(500).send({ message: error.message });
+    return res.status(500).send({ message: error.message });
   }
 };
 
@@ -30,9 +30,9 @@ export const ALL = async (req, res) => {
       return acc;
     }, []);
 
-    res.status(200).send(clean);
+    return res.status(200).send(clean);
   } catch (error) {
-    res.status(500).send({ message: error.message });
+    return res.status(500).send({ message: error.message });
   }
 };
 
@@ -42,13 +42,13 @@ export const SINGLE = async (req, res) => {
   try {
     const skill = await Skill.findById(id);
 
-    if (skill) {
-      res.status(200).send(skill);
-    } else {
-      res.status(404).send({ message: "Skill not found" });
+    if (!skill) {
+      return res.status(404).send({ message: "Skill did not found" });
     }
+
+    return res.status(200).send(skill);
   } catch (error) {
-    res.status(500).send({ message: error.message });
+    return res.status(500).send({ message: error.message });
   }
 };
 
@@ -58,13 +58,13 @@ export const DELETE = async (req, res) => {
   try {
     const skill = await Skill.findByIdAndDelete(id);
 
-    if (skill) {
-      res.status(200).send({ message: "Skill deleted" });
-    } else {
-      res.status(404).send({ message: "Skill not found" });
+    if (!skill) {
+      return res.status(404).send({ message: "Skill did not found" });
     }
+
+    return res.status(200).send({ message: "Skill deleted" });
   } catch (error) {
-    res.status(500).send({ message: error.message });
+    return res.status(500).send({ message: error.message });
   }
 };
 
@@ -75,12 +75,12 @@ export const UPDATE = async (req, res) => {
   try {
     const skill = await Skill.findByIdAndUpdate(id, data);
 
-    if (skill) {
-      res.status(200).send({ message: "Skill updated" });
-    } else {
-      res.status(404).send({ message: "Skill not found" });
+    if (!skill) {
+      return res.status(404).send({ message: "Skill did not found" });
     }
+
+    return res.status(200).send({ message: "Skill updated" });
   } catch (error) {
-    res.status(500).send({ message: error.message });
+    return res.status(500).send({ message: error.message });
   }
 };

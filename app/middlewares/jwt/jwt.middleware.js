@@ -28,13 +28,13 @@ const jwt = async (req, res, next) => {
   const token = authorization.split(" ")[1];
 
   try {
-    const { id } = JWT.verify(token, appConfig.secret);
+    // const { id } = JWT.verify(token, appConfig.secret);
 
-    const user = await User.findOne({ _id: id });
+    // const user = await User.findOne({ _id: id });
 
-    if (!user) {
-      return res.status(401).send({ message: "Unautorized" });
-    }
+    // if (!user) {
+    //   return res.status(401).send({ message: "Unautorized" });
+    // }
 
     next();
   } catch (error) {

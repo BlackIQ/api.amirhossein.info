@@ -20,14 +20,6 @@ export const schemaModel = {
     type: String,
     default: null,
   },
-  views: {
-    type: Number,
-    default: null,
-  },
-  dir: {
-    type: String,
-    default: null,
-  },
 };
 
 export const schema = new mongooseSchema(schemaModel, { timestamps: true });

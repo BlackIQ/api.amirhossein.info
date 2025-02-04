@@ -1,4 +1,4 @@
-import { Social } from "$models";
+import { Social } from "$app/models/index.js";
 
 export const CREATE = async (req, res) => {
   const data = req.body;
@@ -6,9 +6,9 @@ export const CREATE = async (req, res) => {
   try {
     const social = await Social.create(data);
 
-    res.status(200).send(social);
+    return res.status(200).send(social);
   } catch (error) {
-    res.status(500).send({ message: error.message });
+    return res.status(500).send({ message: error.message });
   }
 };
 
@@ -16,9 +16,9 @@ export const ALL = async (req, res) => {
   try {
     const socials = await Social.find();
 
-    res.status(200).send(socials);
+    return res.status(200).send(socials);
   } catch (error) {
-    res.status(500).send({ message: error.message });
+    return res.status(500).send({ message: error.message });
   }
 };
 
@@ -28,13 +28,13 @@ export const SINGLE = async (req, res) => {
   try {
     const social = await Social.findById(id);
 
-    if (social) {
-      res.status(200).send(social);
-    } else {
-      res.status(404).send({ message: "Social not found" });
+    if (!social) {
+      return res.status(404).send({ message: "Social did not found" });
     }
+
+    return res.status(200).send(social);
   } catch (error) {
-    res.status(500).send({ message: error.message });
+    return res.status(500).send({ message: error.message });
   }
 };
 
@@ -44,13 +44,13 @@ export const DELETE = async (req, res) => {
   try {
     const social = await Social.findByIdAndDelete(id);
 
-    if (social) {
-      res.status(200).send({ message: "Social deleted" });
-    } else {
-      res.status(404).send({ message: "Social not found" });
+    if (!social) {
+      return res.status(404).send({ message: "Social did not found" });
     }
+
+    return res.status(200).send({ message: "Social deleted" });
   } catch (error) {
-    res.status(500).send({ message: error.message });
+    return res.status(500).send({ message: error.message });
   }
 };
 
@@ -61,12 +61,12 @@ export const UPDATE = async (req, res) => {
   try {
     const social = await Social.findByIdAndUpdate(id, data);
 
-    if (social) {
-      res.status(200).send({ message: "Social updated" });
-    } else {
-      res.status(404).send({ message: "Social not found" });
+    if (!social) {
+      return res.status(404).send({ message: "Social did not found" });
     }
+
+    return res.status(200).send({ message: "Social updated" });
   } catch (error) {
-    res.status(500).send({ message: error.message });
+    return res.status(500).send({ message: error.message });
   }
 };
