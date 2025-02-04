@@ -4,27 +4,11 @@ import mongoose from "mongoose";
 const mongooseSchema = mongoose.Schema;
 
 export const schemaModel = {
-  title: {
+  label: {
     type: String,
     default: null,
   },
-  details: {
-    type: String,
-    default: null,
-  },
-  content: {
-    type: String,
-    default: null,
-  },
-  thumbnail: {
-    type: String,
-    default: null,
-  },
-  views: {
-    type: Number,
-    default: null,
-  },
-  dir: {
+  value: {
     type: String,
     default: null,
   },
@@ -32,4 +16,4 @@ export const schemaModel = {
 
 export const schema = new mongooseSchema(schemaModel, { timestamps: true });
 
-export default mongo.model("Note", schema);
+export default mongo.model("Permission", schema);

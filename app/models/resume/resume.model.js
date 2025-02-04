@@ -1,12 +1,19 @@
-import { MongoDB } from "$connections";
+import { mongo } from "$app/connections/index.js";
+
 import mongoose from "mongoose";
+const mongooseSchema = mongoose.Schema;
 
-const Schema = mongoose.Schema;
+export const schemaModel = {
+  name: {
+    type: String,
+    default: null,
+  },
+  url: {
+    type: String,
+    default: null,
+  },
+};
 
-// Define the schema for resumes
-const resumeSchema = new Schema({
-  name: String,
-  url: String,
-});
+export const schema = new mongooseSchema(schemaModel, { timestamps: true });
 
-export default MongoDB.model("Resume", resumeSchema);
+export default mongo.model("Resume", schema);

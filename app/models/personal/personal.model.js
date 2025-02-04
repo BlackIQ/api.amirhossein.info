@@ -1,15 +1,31 @@
-import { MongoDB } from "$connections";
+import { mongo } from "$app/connections/index.js";
+
 import mongoose from "mongoose";
+const mongooseSchema = mongoose.Schema;
 
-const Schema = mongoose.Schema;
+export const schemaModel = {
+  name: {
+    type: String,
+    default: null,
+  },
+  location: {
+    type: String,
+    default: null,
+  },
+  born: {
+    type: Date,
+    default: null,
+  },
+  job: {
+    type: String,
+    default: null,
+  },
+  current_place_of_work: {
+    type: String,
+    default: null,
+  },
+};
 
-// Define the schema for personal information
-const personalInfoSchema = new Schema({
-  name: String,
-  location: String,
-  born: Date,
-  job: String,
-  current_place_of_work: String,
-});
+export const schema = new mongooseSchema(schemaModel, { timestamps: true });
 
-export default MongoDB.model("PersonalInfo", personalInfoSchema);
+export default mongo.model("PersonalInfo", schema);

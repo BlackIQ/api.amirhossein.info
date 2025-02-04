@@ -1,16 +1,23 @@
-import { MongoDB } from "$connections";
+import { mongo } from "$app/connections/index.js";
+
 import mongoose from "mongoose";
+const mongooseSchema = mongoose.Schema;
 
-const Schema = mongoose.Schema;
-
-// Define the schema for message schema
-const messageSchema = new Schema(
-  {
-    name: String,
-    email: String,
-    message: String,
+export const schemaModel = {
+  name: {
+    type: String,
+    default: null,
   },
-  { timestamps: true }
-);
+  email: {
+    type: String,
+    default: null,
+  },
+  message: {
+    type: String,
+    default: null,
+  },
+};
 
-export default MongoDB.model("Message", messageSchema);
+export const schema = new mongooseSchema(schemaModel, { timestamps: true });
+
+export default mongo.model("Message", schema);

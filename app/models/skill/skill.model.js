@@ -1,13 +1,24 @@
-import { MongoDB } from "$connections";
+import { mongo } from "$app/connections/index.js";
+
 import mongoose from "mongoose";
+const mongooseSchema = mongoose.Schema;
 
-const Schema = mongoose.Schema;
+export const schemaModel = {
+  name: {
+    type: String,
+    default: null,
+  },
+  order: {
+    type: Number,
+    default: null,
+  },
+  parent: {
+    type: mongooseSchema.Types.ObjectId,
+    ref: "Skill",
+    default: null,
+  },
+};
 
-// Define the schema for skills
-const skillSchema = new Schema({
-  name: String,
-  order: { type: Number, default: null },
-  parent: { type: Schema.Types.ObjectId, ref: "Skill", default: null }, // Reference to parent skill
-});
+export const schema = new mongooseSchema(schemaModel, { timestamps: true });
 
-export default MongoDB.model("Skill", skillSchema);
+export default mongo.model("Skill", schema);

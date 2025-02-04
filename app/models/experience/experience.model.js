@@ -1,18 +1,49 @@
-import { MongoDB } from "$connections";
+import { mongo } from "$app/connections/index.js";
+
 import mongoose from "mongoose";
+const mongooseSchema = mongoose.Schema;
 
-const Schema = mongoose.Schema;
+export const schemaModel = {
+  position: {
+    type: String,
+    default: null,
+  },
+  company_name: {
+    type: String,
+    default: null,
+  },
+  location: {
+    type: String,
+    default: null,
+  },
+  start_date: {
+    type: String,
+    default: null,
+  },
+  end_date: {
+    type: String,
+    default: null,
+  },
+  priority: {
+    type: Number,
+    default: null,
+  },
+  skills: [
+    {
+      type: mongooseSchema.Types.ObjectId,
+      ref: "Skill",
+      default: [],
+    },
+  ],
+  duties: [
+    {
+      type: mongooseSchema.Types.ObjectId,
+      ref: "Duty",
+      default: [],
+    },
+  ],
+};
 
-// Define the schema for social media links
-const experienceSchema = new Schema({
-  position: String,
-  company_name: String,
-  location: String,
-  start_date: String,
-  end_date: String,
-  priority: Number,
-  skills: [{ type: Schema.Types.ObjectId, ref: "Skill" }], // Reference to skills collection
-  duties: [{ type: Schema.Types.ObjectId, ref: "Duty" }], // Reference to duties collection
-});
+export const schema = new mongooseSchema(schemaModel, { timestamps: true });
 
-export default MongoDB.model("Experience", experienceSchema);
+export default mongo.model("Experience", schema);

@@ -1,13 +1,28 @@
-import { MongoDB } from "$connections";
+import { mongo } from "$app/connections/index.js";
+
 import mongoose from "mongoose";
+const mongooseSchema = mongoose.Schema;
 
-const Schema = mongoose.Schema;
+export const schemaModel = {
+  name: {
+    type: String,
+    default: null,
+  },
+  username: {
+    type: String,
+    default: null,
+  },
+  password: {
+    type: String,
+    default: null,
+  },
+  role: {
+    type: mongooseSchema.Types.ObjectId,
+    ref: "Role",
+    default: null,
+  },
+};
 
-// Define the schema for user
-const userSchema = new Schema({
-  name: String,
-  username: String,
-  password: String,
-});
+export const schema = new mongooseSchema(schemaModel, { timestamps: true });
 
-export default MongoDB.model("User", userSchema);
+export default mongo.model("User", schema);

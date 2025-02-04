@@ -1,12 +1,19 @@
-import { MongoDB } from "$connections";
+import { mongo } from "$app/connections/index.js";
+
 import mongoose from "mongoose";
+const mongooseSchema = mongoose.Schema;
 
-const Schema = mongoose.Schema;
+export const schemaModel = {
+  label: {
+    type: String,
+    default: null,
+  },
+  url: {
+    type: String,
+    default: null,
+  },
+};
 
-// Define the schema for social media links
-const socialMediaSchema = new Schema({
-  label: String,
-  url: String,
-});
+export const schema = new mongooseSchema(schemaModel, { timestamps: true });
 
-export default MongoDB.model("Social", socialMediaSchema);
+export default mongo.model("Social", schema);

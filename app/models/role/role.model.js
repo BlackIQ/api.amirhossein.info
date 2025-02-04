@@ -4,32 +4,23 @@ import mongoose from "mongoose";
 const mongooseSchema = mongoose.Schema;
 
 export const schemaModel = {
-  title: {
+  label: {
     type: String,
     default: null,
   },
-  details: {
+  value: {
     type: String,
     default: null,
   },
-  content: {
-    type: String,
-    default: null,
-  },
-  thumbnail: {
-    type: String,
-    default: null,
-  },
-  views: {
-    type: Number,
-    default: null,
-  },
-  dir: {
-    type: String,
-    default: null,
-  },
+  permissions: [
+    {
+      type: mongooseSchema.Types.ObjectId,
+      ref: "Permission",
+      default: [],
+    },
+  ],
 };
 
 export const schema = new mongooseSchema(schemaModel, { timestamps: true });
 
-export default mongo.model("Note", schema);
+export default mongo.model("Role", schema);

@@ -1,11 +1,15 @@
-import { MongoDB } from "$connections";
+import { mongo } from "$app/connections/index.js";
+
 import mongoose from "mongoose";
+const mongooseSchema = mongoose.Schema;
 
-const Schema = mongoose.Schema;
+export const schemaModel = {
+  name: {
+    type: String,
+    default: null,
+  },
+};
 
-// Define the schema for duties
-const dutySchema = new Schema({
-  name: String,
-});
+export const schema = new mongooseSchema(schemaModel, { timestamps: true });
 
-export default MongoDB.model("Duty", dutySchema);
+export default mongo.model("Duty", schema);
