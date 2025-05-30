@@ -36,6 +36,10 @@ export const schemaModel = {
     type: String,
     default: null,
   },
+  url: {
+    type: String,
+    default: null,
+  },
 };
 
 export const schema = new mongooseSchema(schemaModel, { timestamps: true });
