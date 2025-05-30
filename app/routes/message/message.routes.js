@@ -5,9 +5,9 @@ import { key } from "$app/middlewares/index.js";
 
 const router = express.Router();
 
-router.post("/", key, Message.CREATE);
-router.get("/", Message.ALL);
-router.get("/:id", Message.SINGLE);
+router.post("/", Message.CREATE);
+router.get("/", key, Message.ALL);
+router.get("/:id", key, Message.SINGLE);
 router.delete("/:id", key, Message.DELETE);
 router.patch("/:id", key, Message.UPDATE);
 
