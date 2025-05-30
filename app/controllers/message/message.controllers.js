@@ -4,14 +4,14 @@ export const CREATE = async (req, res) => {
   const data = req.body;
 
   try {
-    if (data.message === "") {
+    if (!data.message || data.message === "") {
       return res.status(400).send({ message: "Fill message fields please" });
     }
-    if (data.name === "") {
+    if (!data.name || data.name === "") {
       return res.status(400).send({ message: "Fill name fields please" });
     }
 
-    if (data.email === "") {
+    if (!data.email || data.email === "") {
       return res.status(400).send({ message: "Fill email fields please" });
     }
 
