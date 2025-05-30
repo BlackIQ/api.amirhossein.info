@@ -1,3 +1,3 @@
-import jwt from "$app/middlewares/jwt/jwt.middleware.js";
+import key from "$app/middlewares/key/key.middleware.js";
 
-export { jwt };
+export { key };
