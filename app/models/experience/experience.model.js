@@ -4,6 +4,10 @@ import mongoose from "mongoose";
 const mongooseSchema = mongoose.Schema;
 
 export const schemaModel = {
+  priority: {
+    type: Number,
+    default: null,
+  },
   position: {
     type: String,
     default: null,
@@ -24,17 +28,14 @@ export const schemaModel = {
     type: String,
     default: null,
   },
-  priority: {
-    type: Number,
+  duties: {
+    type: String,
     default: null,
   },
-  skills: [
-    {
-      type: mongooseSchema.Types.ObjectId,
-      ref: "Skill",
-      default: [],
-    },
-  ],
+  skills: {
+    type: String,
+    default: null,
+  },
 };
 
 export const schema = new mongooseSchema(schemaModel, { timestamps: true });

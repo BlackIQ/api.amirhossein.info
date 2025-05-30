@@ -14,18 +14,7 @@ export const CREATE = async (req, res) => {
 
 export const ALL = async (req, res) => {
   try {
-    const experiences = await Experience.find()
-      .populate([
-        {
-          path: "skills",
-          select: "name id",
-        },
-        {
-          path: "duties",
-          select: "name id",
-        },
-      ])
-      .sort({ priority: 1 });
+    const experiences = await Experience.find().sort({ priority: 1 });
 
     return res.status(200).send(experiences.reverse());
   } catch (error) {

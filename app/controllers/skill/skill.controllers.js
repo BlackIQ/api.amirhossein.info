@@ -14,23 +14,9 @@ export const CREATE = async (req, res) => {
 
 export const ALL = async (req, res) => {
   try {
-    const skills = await Skill.find().sort({ order: 1 });
+    const skills = await Skill.find();
 
-    const clean = await skills.reduce((acc, skill) => {
-      if (skill.parent === null) {
-        acc.push({
-          _id: skill._id,
-          name: skill.name,
-          children: skills.filter(
-            (child) => String(child.parent) === String(skill._id)
-          ),
-        });
-      }
-
-      return acc;
-    }, []);
-
-    return res.status(200).send(clean);
+    return res.status(200).send(skills);
   } catch (error) {
     return res.status(500).send({ message: error.message });
   }

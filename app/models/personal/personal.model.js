@@ -4,23 +4,11 @@ import mongoose from "mongoose";
 const mongooseSchema = mongoose.Schema;
 
 export const schemaModel = {
-  name: {
+  label: {
     type: String,
     default: null,
   },
-  location: {
-    type: String,
-    default: null,
-  },
-  born: {
-    type: Date,
-    default: null,
-  },
-  job: {
-    type: String,
-    default: null,
-  },
-  current_place_of_work: {
+  value: {
     type: String,
     default: null,
   },
@@ -28,4 +16,4 @@ export const schemaModel = {
 
 export const schema = new mongooseSchema(schemaModel, { timestamps: true });
 
-export default mongo.model("PersonalInfo", schema);
+export default mongo.model("Info", schema);
