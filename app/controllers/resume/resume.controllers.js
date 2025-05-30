@@ -14,7 +14,7 @@ export const CREATE = async (req, res) => {
 
 export const ALL = async (req, res) => {
   try {
-    const resumes = await Resume.find();
+    const resumes = await Resume.find().sort({ priority: 1 });
 
     return res.status(200).send(resumes);
   } catch (error) {

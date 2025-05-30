@@ -4,7 +4,15 @@ import mongoose from "mongoose";
 const mongooseSchema = mongoose.Schema;
 
 export const schemaModel = {
-  name: {
+  priority: {
+    type: Number,
+    default: null,
+  },
+  label: {
+    type: String,
+    default: null,
+  },
+  value: {
     type: String,
     default: null,
   },
