@@ -4,16 +4,21 @@ import mongoose from "mongoose";
 const mongooseSchema = mongoose.Schema;
 
 export const schemaModel = {
-  name: {
-    type: String,
-    default: null,
-  },
-  order: {
+  priority: {
     type: Number,
     default: null,
   },
+  label: {
+    type: String,
+    required: true,
+  },
+  value: {
+    type: String,
+    required: true,
+    unique: true,
+  },
   parent: {
-    type: mongooseSchema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "Skill",
     default: null,
   },
